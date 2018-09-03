@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 import './App.css';
 import 'antd/dist/antd.css';
+import 'react-quill/dist/quill.snow.css';
 
 import { Form, Input, Button } from 'antd';
 import RichEditorExample from "./RichEditorExample";
+import Editor from "./Editor";
 
 const FormItem = Form.Item;
 
@@ -47,11 +49,12 @@ class AdvancedSearchForm extends Component {
 
                     <FormItem
                     >
-                        {getFieldDecorator('editor', {
+                        {getFieldDecorator('editor2', {
                             rules: [{ required: true, }],
                         })
-                        (<RichEditorExample />)}
+                        (<Editor placeholder={'Write something...'}/>)}
                     </FormItem>
+
                     <FormItem >
                         <Button type="primary" htmlType="submit">Submit</Button>
                     </FormItem>
