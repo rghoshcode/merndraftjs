@@ -4,68 +4,44 @@ import './App.css';
 import 'antd/dist/antd.css';
 import 'react-quill/dist/quill.snow.css';
 
-import { Form, Input, Button } from 'antd';
-import RichEditorExample from "./RichEditorExample";
-import Editor from "./Editor";
 
-const FormItem = Form.Item;
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
+const { Header, Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
 
 
 
-class AdvancedSearchForm extends Component {
-    constructor() {
-        super();
+class SiderDemo extends React.Component {
+    state = {
+        collapsed: true,
+    };
+
+    onCollapse = (collapsed) => {
+        console.log(collapsed);
+        this.setState({ collapsed });
     }
-
-    handleSearch = (e) => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            console.log('Received values of form: ', values);
-        });
-    }
+//<Icon style={{ width: '40px' }} type="plus-square" theme="twoTone" />
 
     render() {
-        const { getFieldDecorator } = this.props.form;
-
         return (
-            <div>
-                <Form layout="vertical"
-                      onSubmit={this.handleSearch}>
+            <Layout style={{ minHeight: '100vh' }}>
+                    <Header id='header' >
+                        Minimalist. Resourceful. Reliable.
+                        <div align="right"><button className='bar-button'>New Question</button></div>
+                    </Header>
+                    <Content style={{ margin: '0 16px' }}>
 
-                    <FormItem
-                    >
-                        {getFieldDecorator('userName', {
-                            rules: [{ required: true, message: 'Please input your username!' }],
-                        })
-                        (<Input placeholder="input placeholder" />)}
-                    </FormItem>
-                    <FormItem
-                    >
-                        {getFieldDecorator('pass', {
-                            rules: [{ required: true, message: 'Please input your pass!' }],
-                        })
-                        (<Input placeholder="input placeholder" />)}
-                    </FormItem>
 
-                    <FormItem
-                    >
-                        {getFieldDecorator('editor2', {
-                            rules: [{ required: true, }],
-                        })
-                        (<Editor placeholder={'Write something...'}/>)}
-                    </FormItem>
+                    </Content>
+                    <Footer style={{ textAlign: 'center', fontSize: '10px' }}>
+                        CtrlShiftF.com ©2018 Designed by Ranajoy Ghosh
+                    </Footer>
 
-                    <FormItem >
-                        <Button type="primary" htmlType="submit">Submit</Button>
-                    </FormItem>
-                </Form>
-            </div>
+            </Layout>
         );
     }
-
 }
-
-const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
 
 class App extends Component {
     constructor() {
@@ -74,7 +50,7 @@ class App extends Component {
 
     render() {
         return (
-            <WrappedAdvancedSearchForm/>
+            <SiderDemo/>
         );
     }
 

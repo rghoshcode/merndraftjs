@@ -3,3 +3,32 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#components-layout-demo-side .logo {
+  height: 32px;
+  background: rgba(255,255,255,.2);
+  margin: 16px;
+}
+
+.bar-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 30px;
+  font-family: inherit;
+  text-decoration: none;
+  vertical-align: middle;
+  color: white;
+  background: inherit;
+}
+
+#header {
+  width: 100%;
+  background: #222;
+  color: white;
+  font-size: initial;
+  font-family: Serif;
+  text-align: center;
+  height: 150px;
+}
